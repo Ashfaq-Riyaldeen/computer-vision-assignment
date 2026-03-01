@@ -1,0 +1,21 @@
+MRI Enhancement (Image_5.jpg)
+Input: Image_5.jpg (236x226)
+
+Contrast stretching parameters:
+  Percentiles: 1% -> 7.00, 99% -> 222.00
+
+Gaussian filtering parameters:
+  Kernel size: 5x5, sigma=1.0
+
+Metrics (mean, std, entropy, laplacian_var, p5, p95, clip_ratio):
+  Original              : mean=  66.18, std=  44.97, ent= 7.03 bits, lapVar=   582.47, p5=   9.0, p95= 139.0, clip= 0.04%
+  HistogramEqualization : mean= 128.78, std=  73.09, ent= 6.82 bits, lapVar=  2145.51, p5=  17.0, p95= 242.0, clip= 0.36%
+  ContrastStretching    : mean=  70.06, std=  52.73, ent= 6.94 bits, lapVar=   807.32, p5=   2.0, p95= 157.0, clip= 2.77%
+  GaussianFilter        : mean=  66.21, std=  42.06, ent= 6.94 bits, lapVar=    92.67, p5=  10.0, p95= 135.0, clip= 0.00%
+
+Observations:
+  - Histogram equalization increases global contrast strongly, but can also amplify noise and make some regions look over-enhanced (non-uniform brightness).
+  - Contrast stretching (percentile-based) improves dynamic range more gently, preserving relative intensity ordering and usually keeping the image more natural for reading.
+  - Gaussian filtering reduces noise, but blurs edges and fine structures, so it is best used as a pre-processing step rather than a standalone enhancement.
+
+Conclusion (clinical diagnosis): Among these single-step methods, contrast stretching provides the best balance between improved contrast and preservation of anatomical detail. Histogram equalization is useful for visualization but may be too aggressive; Gaussian filtering improves smoothness but can remove subtle diagnostic edges.

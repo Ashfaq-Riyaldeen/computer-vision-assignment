@@ -1,0 +1,6 @@
+Input: Image_3.jpg
+SP corruption rate: 0.10
+Laplacian ksize: 3
+Wavelet: bior4.4
+Wavelet level: 3
+High-frequency removal: all detail subbands set to zero; only approximation kept.

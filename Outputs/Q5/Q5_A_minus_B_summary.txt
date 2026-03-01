@@ -1,0 +1,3 @@
+Q1 box 15x15: max|A-B|=0, mean|A-B|=0.000000, nonzero=0.0000%, diff_range=[0, 0]
+Q2 median 11x11: max|A-B|=0, mean|A-B|=0.000000, nonzero=0.0000%, diff_range=[0, 0]
+Q3 gaussian 15x15 (sigma auto 2.600): max|A-B|=1, mean|A-B|=0.006165, nonzero=0.6165%, diff_range=[-1, 1]

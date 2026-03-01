@@ -1,0 +1,14 @@
+ Use the provided image for each question. images are within /image file
+3. Give concise answers for all text based questions.
+4. Include observations and results for each question separately.
+5. You may use MATLAB or Python (OpenCV, NumPy, PyWavelets), unless oth
+erwise specified.
+number
+6. Write one code file per question, and save it with the format:
+index_number_Question_number.py (or .m for MATLAB).
+
+# myindexnumber is EG_2021_4417 
+# example file type EG_2021_4417_Q1.py
+
+you need to create code within /codes folder
+create output at /Outputs/QuestionNumber

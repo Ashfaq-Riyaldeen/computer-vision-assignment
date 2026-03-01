@@ -1,0 +1,20 @@
+DWT Watermarking (non-blind) on Image_3.jpg
+Host image: Image_3.jpg (5616x3744)
+Watermark: watermark.png (300x168)
+Wavelet: haar
+DWT levels: 4
+Embedding level: 4
+Embedding band: cH
+Alpha (strength): 20.0
+
+Embedding rule (in selected DWT subband):
+  C' = C + alpha * (W - 0.5)
+Extraction rule (needs original image coefficients):
+  W_hat = (C' - C)/alpha + 0.5
+
+PSNR(original, watermarked): 48.20 dB
+NCC(resized watermark, extracted subband watermark): 0.9954
+
+Observation: Increasing alpha improves extracted watermark clarity (higher NCC) but makes the watermark
+more visible in the host image (lower PSNR). Embedding in higher-level detail bands tends to be more
+robust than level-1 details but can affect low-frequency appearance if alpha is too large.

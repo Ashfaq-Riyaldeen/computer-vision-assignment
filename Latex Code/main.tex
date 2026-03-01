@@ -1,0 +1,347 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{listings}
+
+% Formatting
+\setstretch{1.15}
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{1em}{}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+
+%----------------------------------------
+\begin{document}
+
+% --------- First Page (Cover Page) ---------
+\begin{titlepage}
+    \centering
+    \includegraphics[width=3cm]{Logo.jpeg}\par\vspace{1cm}
+    {\LARGE \textbf{Department of Electrical and Information Engineering}}\\[0.4cm]
+    {\Large \textbf{University of Ruhuna}}\\[5.5cm]
+    {\Large \textbf{Assessment 01}}\\[0.2cm]
+    {\large \textbf{Image Processing and Computer Vision}}\\[0.2cm]
+    {\large \textbf{EE7204 / EC7205}}\\[6cm]
+    
+   % Centered student and project info
+    {\large \textbf{M.R.M.ASHFAQ}}\\[0.4cm]
+    {\large \textbf{EF/2021/4417}}\\[0.4cm]
+    {\large \textbf{Computer Engineering (CE)}}\\[0.4cm]
+   
+    {\large \textbf{01/03/2026}}\\[2cm]
+    
+\end{titlepage}
+
+
+% --------- Table of Contents (Clickable) ---------
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Contents}
+\label{contents}
+\tableofcontents
+\clearpage
+
+% Marks 
+\section*{Obtained Marks Distribution}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.5} % increase row height
+\begin{tabular}{|c|l|c|}
+\hline
+\textbf{Q. No} & \textbf{Description} & \textbf{Marks} \\
+\hline
+1 & Preliminary Question 1 &  \\
+2 & Preliminary Question 2 & \\
+3 & Preliminary Question 3 &  \\
+4 & Preliminary Question 4 &  \\
+5 & Preliminary Question 5 &  \\
+6 & Preliminary Question 6 &  \\
+7 & Preliminary Question 7 &  \\
+8 & Preliminary Question 8 &  \\
+9 & Preliminary Question 9 &  \\
+10 & Preliminary Question 10 &  \\
+\hline
+11 & Practical Part (1 Question) &  \\
+\hline
+\multicolumn{2}{|c|}{\textbf{Total Marks}} & \textbf{} \\
+\hline
+\end{tabular}
+\caption{Marks allocation for preliminary and practical parts}
+\label{tab:marks_per_question}
+\end{table}
+
+\newpage{}
+
+
+
+% --------- Sections ---------
+
+\section{Preliminary work}
+
+\subsection{Question 1}
+\subsubsection*{Snapshot of the code}
+\lstinputlisting[language=Python, caption={Code snapshot for Question 1 (EG\_2021\_4417\_Q1.py)}, label={lst:q1_code}]{../Codes/EG_2021_4417_Q1.py}
+
+\subsubsection*{Results / outputs}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/Image_1.jpg}
+        \caption{Original}
+        \label{fig:q1_original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q1/Image_1_avg_3x3.png}
+        \caption{Average $3\times 3$}
+        \label{fig:q1_avg_3x3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q1/Image_1_avg_5x5.png}
+        \caption{Average $5\times 5$}
+        \label{fig:q1_avg_5x5}
+    \end{subfigure}
+
+    \vspace{6pt}
+
+    \begin{subfigure}[b]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q1/Image_1_avg_11x11.png}
+        \caption{Average $11\times 11$}
+        \label{fig:q1_avg_11x11}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q1/Image_1_avg_15x15.png}
+        \caption{Average $15\times 15$}
+        \label{fig:q1_avg_15x15}
+    \end{subfigure}
+    \caption{Average filtering results for different kernel sizes.}
+    \label{fig:q1_results}
+\end{figure}
+
+\subsubsection*{Discussion / observations}
+Average filtering is a linear low-pass operation that reduces high-frequency components (noise and texture) by replacing each pixel with the mean of its neighbourhood.
+As the kernel size increases from $3\times 3$ to $15\times 15$, the smoothing effect becomes stronger: noise is reduced more, but edges become progressively blurred and fine details are lost.
+In this experiment, $3\times 3$ and $5\times 5$ preserve most structures with mild smoothing, while $11\times 11$ and $15\times 15$ noticeably reduce sharpness and local contrast.
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 2}
+
+\subsubsection*{Snapshot of the code}
+\lstinputlisting[language=Python, caption={\texttt{EG\_2021\_4417\_Q2.py}}, label={lst:q2_code}]{../Codes/EG_2021_4417_Q2.py}
+
+\subsubsection*{Results / outputs}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Images/Image_2.jpg}
+        \caption{Original}
+        \label{fig:q2_original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_10pct.png}
+        \caption{S\&P $10\%$}
+        \label{fig:q2_sp_10}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_20pct.png}
+        \caption{S\&P $20\%$}
+        \label{fig:q2_sp_20}
+    \end{subfigure}
+    \caption{Salt \& pepper noise added to \texttt{Image\_2.jpg}.}
+    \label{fig:q2_noise}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_10pct_median_3x3.png}
+        \caption{$10\%$ + Median $3\times 3$}
+        \label{fig:q2_10_m3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_10pct_median_5x5.png}
+        \caption{$10\%$ + Median $5\times 5$}
+        \label{fig:q2_10_m5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_10pct_median_11x11.png}
+        \caption{$10\%$ + Median $11\times 11$}
+        \label{fig:q2_10_m11}
+    \end{subfigure}
+
+    \vspace{6pt}
+
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_20pct_median_3x3.png}
+        \caption{$20\%$ + Median $3\times 3$}
+        \label{fig:q2_20_m3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_20pct_median_5x5.png}
+        \caption{$20\%$ + Median $5\times 5$}
+        \label{fig:q2_20_m5}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../Outputs/Q2/Image_2_salt_pepper_20pct_median_11x11.png}
+        \caption{$20\%$ + Median $11\times 11$}
+        \label{fig:q2_20_m11}
+    \end{subfigure}
+    \caption{Median filtering results for different noise levels and kernel sizes.}
+    \label{fig:q2_median_results}
+\end{figure}
+
+\subsubsection*{Discussion / observations}
+Salt \& pepper noise is impulse noise that appears as random black/white pixels; increasing the corruption rate from $10\%$ to $20\%$ significantly increases the speckle density and obscures fine details.
+Median filtering is effective for impulse noise because it removes outlier pixels while preserving edges better than linear averaging.
+However, as the kernel size increases (e.g., $11\times 11$), denoising improves but edges and thin structures can become distorted and textures become over-smoothed.
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 3}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 4}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 5}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 6}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 7}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 8}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 9}
+
+\hyperref[contents]{\small Back to Table of Contents}
+\subsection{Question 10}
+
+
+\hyperref[contents]{\small Back to Table of Contents}
+\newpage
+
+
+\section{Practical Work}
+\subsection{Introduction}
+(Maximum word limit: 50 words)
+
+
+\subsection{Flow Diagram of the image processing pipeline }
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{01_Original.png}
+    \caption{Flow Diagram}
+    \label{fig:flow_diagram}
+\end{figure}
+
+
+
+\hyperref[contents]{\small Back to Table of Contents}
+\newpage
+\section{Introduction and stepwise justification of the selected image processing pipeline.}
+(Maximum word limit: 100 words)
+
+
+
+\hyperref[contents]{\small Back to Table of Contents}
+\newpage
+\section{Expected Results for 10 Images}
+
+\begin{figure}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccc}
+
+\textbf{Original} & \textbf{Result} & \textbf{Ground Truth} \\[6pt]
+
+\includegraphics[width=0.28\textwidth]{01_Original.png} &
+\includegraphics[width=0.28\textwidth]{01_Original.png} &
+\includegraphics[width=0.28\textwidth]{01_Original.png} \\[10pt]
+
+% -------- Uncomment when images are available --------
+% \includegraphics[width=0.28\textwidth]{img2_original.png} &
+% \includegraphics[width=0.28\textwidth]{img2_result.png} &
+% \includegraphics[width=0.28\textwidth]{img2_gt.png} \\[10pt]
+%
+% \includegraphics[width=0.28\textwidth]{img3_original.png} &
+% \includegraphics[width=0.28\textwidth]{img3_result.png} &
+% \includegraphics[width=0.28\textwidth]{img3_gt.png} \\[10pt]
+%
+% ...
+%
+% \includegraphics[width=0.28\textwidth]{img10_original.png} &
+% \includegraphics[width=0.28\textwidth]{img10_result.png} &
+% \includegraphics[width=0.28\textwidth]{img10_gt.png}
+
+\end{tabular}
+\caption{Comparison of original images, obtained results, and ground truth for 10 test cases}
+\label{fig:results_vs_gt}
+\end{figure}
+
+
+
+
+
+\hyperref[contents]{\small Back to Table of Contents}
+\newpage
+\section{Results}
+Average results obtained from the 50-image validation set are presented in Table 1.
+
+
+\hyperref[contents]{\small Back to Table of Contents}
+\newpage
+\section{Discussion}
+{Maximum Words limits : 100 Words}
+
+
+
+\bibliographystyle{ieeetr} 
+\bibliography{references}
+% Add the references if any.
+
+
+\end{document}

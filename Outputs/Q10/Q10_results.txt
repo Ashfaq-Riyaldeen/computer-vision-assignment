@@ -1,0 +1,59 @@
+Morphological Analysis (Image_6.jpg)
+Input: Image_6.jpg (1024x1024)
+
+Binary conversion:
+  Otsu threshold: 142.00
+  Selected polarity: inv (objects as foreground/white)
+
+Structuring elements:
+  Erosion/Dilation: ellipse 3x3, 1 iteration
+  Opening/Closing : ellipse 5x5, 1 iteration
+  Large-object area threshold (for features): 500 px
+
+Comparison table (quantitative):
+Operation | FG area(px) | Components | Large(>=thr) | Small(<thr) | Perimeter(px)
+------------------------------------------------------------------------------
+Binary    |     394660 |      23051 |          77 |      22974 |       348179
+Erosion   |      80150 |      13709 |           8 |      13701 |        53395
+Dilation  |     800113 |       1214 |          16 |       1198 |       388461
+Opening   |      60131 |        188 |           8 |        180 |        20651
+Closing   |     844905 |       1624 |          15 |       1609 |       111072
+
+Comparison table (qualitative):
+Operation | Noise removal | Gap filling | Shape preservation
+--------------------------------------------------------------------------
+Erosion   | Good (removes small specks) | Poor | Low-Medium (shrinks/breaks thin parts)
+Dilation  | Poor (amplifies noise)      | Good (bridges small gaps) | Low (merges/expands)
+Opening   | Best                        | Medium | Medium-High (keeps main shapes)
+Closing   | Medium                      | Best   | Medium (fills holes, may connect close shapes)
+
+Basic morphological features (area/perimeter) from Opening result (largest objects):
+  Obj 01: area= 10691 px, perimeter= 1441.98 px
+  Obj 02: area=  9065 px, perimeter= 1247.37 px
+  Obj 03: area=  8680 px, perimeter= 1189.94 px
+  Obj 04: area=  7683 px, perimeter= 1044.33 px
+  Obj 05: area=  6943 px, perimeter=  940.00 px
+  Obj 06: area=  5744 px, perimeter=  792.48 px
+  Obj 07: area=  5044 px, perimeter=  683.93 px
+  Obj 08: area=  2209 px, perimeter=  312.74 px
+
+Basic morphological features (area/perimeter) from Closing result (largest objects):
+  Obj 01: area=813158 px, perimeter= 4819.33 px
+  Obj 02: area=  3266 px, perimeter= 1741.78 px
+  Obj 03: area=  2508 px, perimeter= 1544.89 px
+  Obj 04: area=  1142 px, perimeter=  660.14 px
+  Obj 05: area=  1084 px, perimeter=  695.21 px
+  Obj 06: area=  1023 px, perimeter=  591.96 px
+  Obj 07: area=   700 px, perimeter=  342.29 px
+  Obj 08: area=   639 px, perimeter=  369.75 px
+  Obj 09: area=   631 px, perimeter=  453.35 px
+  Obj 10: area=   609 px, perimeter=  407.16 px
+  Obj 11: area=   582 px, perimeter=  323.46 px
+  Obj 12: area=   555 px, perimeter=  343.81 px
+  Obj 13: area=   525 px, perimeter=  367.50 px
+  Obj 14: area=   517 px, perimeter=  312.05 px
+  Obj 15: area=   512 px, perimeter=  350.09 px
+
+Observation: Opening removes isolated noise while retaining the major geometric objects. Closing fills
+small gaps/holes but can also connect nearby objects, increasing area and reducing the number of separate
+components. Erosion and dilation are more extreme and mainly useful as building blocks for opening/closing.

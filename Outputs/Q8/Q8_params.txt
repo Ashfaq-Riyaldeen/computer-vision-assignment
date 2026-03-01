@@ -1,0 +1,17 @@
+CT Organ Isolation (Image_4.jpg)
+Organs of interest: left lung and right lung (air regions)
+Image size: 512x512
+
+Segmentation parameters:
+  Body threshold (>) : 5
+  Lung threshold (<) : 50
+  Lung smoothing     : morphology open k=1 (per-lung mask)
+
+Areas (pixels):
+  Body (filled): 184076
+  Left lung     : 18804 (10.22% of body)
+  Right lung    : 19434 (10.56% of body)
+  Both lungs    : 38238 (20.77% of body)
+
+Observation: In this CT slice, lungs appear as the two largest low-intensity regions inside the filled
+body mask. Thresholding + morphology + connected components cleanly isolates them.
